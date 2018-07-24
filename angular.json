@@ -125,6 +125,46 @@
           }
         }
       }
+    },
+    "weather-widget-io-angular": {
+      "root": "projects/weather-widget-io-angular",
+      "sourceRoot": "projects/weather-widget-io-angular/src",
+      "projectType": "library",
+      "prefix": "wwio",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/weather-widget-io-angular/tsconfig.lib.json",
+            "project": "projects/weather-widget-io-angular/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/weather-widget-io-angular/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/weather-widget-io-angular/src/test.ts",
+            "tsConfig": "projects/weather-widget-io-angular/tsconfig.spec.json",
+            "karmaConfig": "projects/weather-widget-io-angular/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/weather-widget-io-angular/tsconfig.lib.json",
+              "projects/weather-widget-io-angular/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "weather-widget-io-angular-app"

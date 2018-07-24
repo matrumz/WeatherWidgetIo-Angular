@@ -1,0 +1,7 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/weather-widget-io-angular",
+  "lib": {
+    "entryFile": "src/public_api.ts"
+  }
+}
