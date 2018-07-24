@@ -3,9 +3,8 @@ import { WeatherWidgetIoAngularComponent } from './weather-widget-io-angular.com
 import { WeatherComponent } from './weather/weather.component';
 
 @NgModule({
-  imports: [
-  ],
-  declarations: [WeatherWidgetIoAngularComponent, WeatherComponent],
-  exports: [WeatherWidgetIoAngularComponent]
+    imports: [],
+    declarations: [WeatherWidgetIoAngularComponent, WeatherComponent],
+    exports: [WeatherWidgetIoAngularComponent, WeatherComponent]
 })
 export class WeatherWidgetIoAngularModule { }
