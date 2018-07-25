@@ -4,16 +4,19 @@ import { DOCUMENT } from '@angular/common';
 @Component({
     selector: 'wwio-weather',
     templateUrl: './weather.component.html',
-    styleUrls: ['./weather.component.less']
+    styleUrls: ['./weather.component.less'],
+    inputs: [
+        "forecast7Url: url"
+    ]
 })
 export class WeatherComponent implements OnInit
 {
 
     constructor(
-        @Inject(DOCUMENT) private document: any // Using 'Document' type causes build error: "Metadata collected contains an error that will be reported at runtime: Could not resolve type Document."
-        // @Input('url') public forecast7Url: string
-    ) {
-        // this.forecast7Url = "https://forecast7.com/en/43d66n70d26/portland/?unit=us";
+        @Inject(DOCUMENT) private document: any, // Using 'Document' type causes build error: "Metadata collected contains an error that will be reported at runtime: Could not resolve type Document."
+    )
+    {
+        this.forecast7Url = "https://forecast7.com/en/43d66n70d26/portland/?unit=us";
     }
 
     ngOnInit()
@@ -36,5 +39,7 @@ export class WeatherComponent implements OnInit
             fjs.parentNode.insertBefore(js, fjs);
         }
     }
+
+    public forecast7Url: string;
 
 }
