@@ -1,12 +1,13 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { IWeatherWidgetIoWidget } from '../models/weather-widget-io-widget';
 
 @Component({
     selector: 'wwio-weather',
     templateUrl: './weather.component.html',
     styleUrls: ['./weather.component.less'],
     inputs: [
-        "forecast7Url: url"
+        "widget.href: url"
     ]
 })
 export class WeatherComponent implements OnInit
@@ -16,7 +17,7 @@ export class WeatherComponent implements OnInit
         @Inject(DOCUMENT) private document: any, // Using 'Document' type causes build error: "Metadata collected contains an error that will be reported at runtime: Could not resolve type Document."
     )
     {
-        this.forecast7Url = "https://forecast7.com/en/43d66n70d26/portland/?unit=us";
+        this.widget = {} as IWeatherWidgetIoWidget;
     }
 
     ngOnInit()
@@ -40,6 +41,6 @@ export class WeatherComponent implements OnInit
         }
     }
 
-    public forecast7Url: string;
+    public widget: IWeatherWidgetIoWidget;
 
 }
